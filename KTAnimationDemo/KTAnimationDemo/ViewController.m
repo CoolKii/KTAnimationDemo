@@ -96,9 +96,12 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     NSDictionary * dic = (NSDictionary *)[[self.dataArr objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
     NSString * className = [dic objectForKey:@"className"];
-    UIViewController * vcClass = (UIViewController*)NSClassFromString(className);
+    Class vcClass = NSClassFromString(className);
     //调用pushFrontViewController进行页面切换
-    [self.navigationController pushViewController:vcClass animated:YES];
+    
+    UIViewController * theVC = (UIViewController*)[[vcClass alloc]init];
+    [self.navigationController pushViewController:theVC animated:YES];
+    
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{

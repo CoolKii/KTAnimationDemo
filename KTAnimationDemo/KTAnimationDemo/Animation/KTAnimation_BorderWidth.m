@@ -28,7 +28,7 @@
 - (void)initUI {
     
     _wsView = [[UIImageView alloc] initWithFrame:CGRectMake(kScreenWidth/2-80, kScreenHeight/2-80,160 ,160 )];
-    _wsView.image = [UIImage imageNamed:@"img1"];
+    _wsView.image = [UIImage imageNamed:imageName2];
     _wsView.layer.cornerRadius = 10;
     _wsView.layer.masksToBounds = YES;
     _wsView.layer.borderColor = [UIColor orangeColor].CGColor;

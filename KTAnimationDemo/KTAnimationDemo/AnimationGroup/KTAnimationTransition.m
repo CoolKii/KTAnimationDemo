@@ -35,7 +35,7 @@
 - (void)initUI {
     
     _wsView = [[UIImageView alloc] initWithFrame:CGRectMake(kScreenWidth/2-100, kScreenHeight/2-150,200 ,200 )];
-    _wsView.image = [UIImage imageNamed:@"img1"];
+    _wsView.image = [UIImage imageNamed:imageName2];
     [self.view addSubview:_wsView];
     
     _indexLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetWidth(_wsView.frame)/2-30, CGRectGetHeight(_wsView.frame)/2-20, 60, 40)];
@@ -266,7 +266,7 @@
     if (_index<0) {
         _index = 1;
     }
-    NSArray *images = [NSArray arrayWithObjects:[UIImage imageNamed:@"img1"],[UIImage imageNamed:@"img2"], nil];
+    NSArray *images = [NSArray arrayWithObjects:[UIImage imageNamed:imageName2],[UIImage imageNamed:imageName1], nil];
     NSArray *titles = [NSArray arrayWithObjects:@"1号",@"2号", nil];
     _wsView.image = [images objectAtIndex:_index];
     _indexLabel.text = [titles objectAtIndex:_index];

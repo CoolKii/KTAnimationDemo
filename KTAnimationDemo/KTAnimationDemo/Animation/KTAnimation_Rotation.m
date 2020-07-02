@@ -10,8 +10,9 @@
 
 @interface KTAnimation_Rotation ()
 
-@property (nonatomic , strong) UIImageView *wsView;
-
+@property (nonatomic, strong) UIImageView * wsView;
+@property (nonatomic, strong) UIImageView * leidaImgV;
+@property (nonatomic, strong) UIImageView * leidaBoImgV;
 
 @end
 
@@ -20,22 +21,26 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    
-    
     [self initUI];
 }
 
 
 - (void)initUI {
     
+    _leidaImgV = [[UIImageView alloc] initWithFrame:CGRectMake(kScreenWidth/2-80, 120,160 ,160 )];
+    _leidaImgV.image = [UIImage imageNamed:@"leidabgimg"];
+    [self.view addSubview:_leidaImgV];
+    _leidaBoImgV = [[UIImageView alloc] initWithFrame:CGRectMake(80, 80,80 ,80 )];
+    _leidaBoImgV.image = [UIImage imageNamed:@"leidaBo"];
+    [_leidaImgV addSubview:_leidaBoImgV];
+    
     _wsView = [[UIImageView alloc] initWithFrame:CGRectMake(kScreenWidth/2-80, kScreenHeight/2-80,160 ,160 )];
     _wsView.image = [UIImage imageNamed:imageName1];
     [self.view addSubview:_wsView];
     
     
-    NSArray *titleArr = @[@"Z轴旋转",@"X轴旋转",@"Y轴旋转",@"抖动"];
+    NSArray *titleArr = @[@"Z轴旋转",@"X轴旋转",@"Y轴旋转",@"抖动",@"Z轴旋转point"];
     for (NSInteger i = 0 ; i < titleArr.count; i++) {
-        
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
         btn.frame = CGRectMake(20+(kScreenWidth-100)/titleArr.count*i+20*i, kScreenHeight - 100, (kScreenWidth-100)/titleArr.count, 40);
         btn.layer.cornerRadius = 5;
@@ -46,14 +51,9 @@
         [self.view addSubview:btn];
         [btn addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
     }
-    
-    
 }
 
-
-
 - (void)btnAction:(UIButton *)btn {
-    
     switch (btn.tag) {
         case 0:
         {
@@ -91,7 +91,18 @@
             [_wsView.layer addAnimation:anima forKey:@"shakeAnimation"];
         }
             break;
+        case 4:
+        {
+            CABasicAnimation * anima1 = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
+            anima1.toValue = [NSNumber numberWithFloat:M_PI*2];
+            anima1.duration = 2.0f;
+            anima1.repeatCount = MAXFLOAT;
+            self.leidaBoImgV.layer.anchorPoint = CGPointZero;
+            self.leidaBoImgV.layer.position = CGPointMake(80, 80);
+            [self.leidaBoImgV.layer addAnimation:anima1 forKey:@"rotateAnimation"];
             
+        }
+            break;
         default:
             break;
     }

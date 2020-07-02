@@ -30,7 +30,7 @@
 - (void)initUI {
     
     _wsView = [[UIImageView alloc] initWithFrame:CGRectMake(kScreenWidth/2-80, kScreenHeight/2-80,160 ,160 )];
-    _wsView.image = [UIImage imageNamed:@"img1"];
+    _wsView.image = [UIImage imageNamed:imageName2];
     [self.view addSubview:_wsView];
     
     

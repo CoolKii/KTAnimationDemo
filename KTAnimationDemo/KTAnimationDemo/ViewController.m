@@ -8,6 +8,9 @@
 
 #import "ViewController.h"
 
+
+
+
 @interface ViewController ()<UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic,copy)NSArray * dataArr;
@@ -77,7 +80,7 @@
 }
 
 - (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    NSArray *array = @[@"基础动画",@"组动画",@"转场动画"];
+    NSArray *array = @[@"    基础动画",@"    组动画",@"    转场动画"];
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(20, 0, kScreenWidth-40, 25)];
     label.textColor = [UIColor orangeColor];
     label.text = [array objectAtIndex:section];
@@ -98,8 +101,8 @@
     NSString * className = [dic objectForKey:@"className"];
     Class vcClass = NSClassFromString(className);
     //调用pushFrontViewController进行页面切换
-    
     UIViewController * theVC = (UIViewController*)[[vcClass alloc]init];
+    theVC.title = [dic objectForKey:@"titleName"];
     [self.navigationController pushViewController:theVC animated:YES];
     
 }

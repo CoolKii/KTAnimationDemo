@@ -66,8 +66,6 @@
             anima.fillMode = kCAFillModeForwards;
             anima.removedOnCompletion = NO;
             [_wsView.layer addAnimation:anima forKey:@"shadowColor"];
-            
-            
         }
             break;
         case 1:
@@ -92,9 +90,7 @@
             anima.fillMode = kCAFillModeForwards;
             anima.removedOnCompletion = NO;
             [_wsView.layer addAnimation:anima forKey:@"shadowColor"];
-            
-            
-        }
+         }
             break;
         case 3:
         {

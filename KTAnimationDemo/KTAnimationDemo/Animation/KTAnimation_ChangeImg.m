@@ -29,7 +29,7 @@ typedef enum {
 @implementation KTAnimation_ChangeImg
 
 - (void)viewDidLoad {
-    
+    self.view.backgroundColor = [UIColor whiteColor];
     _CurrentImgType = CurrentImageTypeEnumOne;
     
     _wsView = [[UIImageView alloc] initWithFrame:CGRectMake(kScreenWidth/2-80, kScreenHeight/2-80,160 ,160 )];
